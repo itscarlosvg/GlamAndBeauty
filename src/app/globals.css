@@ -1,26 +1,124 @@
-@import "tailwindcss";
+/* globals.css - Tailwind v4 - VERSIÓN CORREGIDA */
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Colores base - FONDO OSCURO, TEXTO CLARO */
+  --color-background: #3A3633;      /* Marrón oscuro elegante */
+  --color-foreground: #FAF7F5;      /* Blanco roto para texto principal */
+  --color-foreground-muted: #D8D2CC; /* Gris claro para texto secundario - ¡ESTO FALTA! */
+  --color-accent: #C08497;          /* Rosa polvo */
+  
+  /* Colores de superficie - IMPORTANTES para componentes */
+  --color-surface: #FFFFFF;         /* Blanco puro para tarjetas */
+  --color-surface-alt: #F8F4F0;     /* Blanco roto para fondos alternos */
+  --color-accent-light: #E8D4DC;    /* Rosa claro */
+  --color-accent-dark: #9A697A;     /* Rosa oscuro */
+  
+  /* Paleta extendida (las mantienes igual) */
+  --color-primary-50: #FCF7F9;
+  --color-primary-100: #F9EFF3;
+  --color-primary-200: #F2DAE2;
+  --color-primary-300: #E9C0CF;
+  --color-primary-400: #D89EB5;
+  --color-primary-500: #C08497;
+  --color-primary-600: #A96B80;
+  --color-primary-700: #8E556B;
+  --color-primary-800: #724456;
+  --color-primary-900: #5C3746;
+  
+  --color-gold-50: #FDF8EC;
+  --color-gold-100: #FAF1D9;
+  --color-gold-200: #F5E3B4;
+  --color-gold-300: #EFD48E;
+  --color-gold-400: #EAC669;
+  --color-gold-500: #E0B645;
+  --color-gold-600: #C69A32;
+  --color-gold-700: #A37B29;
+  --color-gold-800: #806020;
+  --color-gold-900: #664D19;
+  
+  --color-rose-50: #FEF2F7;
+  --color-rose-100: #FDE6EF;
+  --color-rose-200: #FBCBDE;
+  --color-rose-300: #F8B0CD;
+  --color-rose-400: #F495BC;
+  --color-rose-500: #F07AAB;
+  --color-rose-600: #E04F8B;
+  --color-rose-700: #C73572;
+  --color-rose-800: #A3295B;
+  --color-rose-900: #852049;
+  
+  /* Colores para estados */
+  --color-success: #10B981;
+  --color-border: #EDE4DD;          /* Borde claro */
+  --color-border-light: #F5EFEA;    /* Borde muy claro */
+  
+  /* Fuentes */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  
+  /* Sombras para modo oscuro */
+  --shadow-card: 0 10px 40px -5px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 20px 50px -10px rgba(0, 0, 0, 0.25);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background) !important;
+  background-image: 
+    radial-gradient(
+      2px 2px at 20px 30px,
+      rgba(192, 132, 151, 0.3),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 40px 70px,
+      rgba(224, 182, 69, 0.2),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 70px 90px,
+      rgba(240, 122, 171, 0.2),
+      transparent
+    ),
+    radial-gradient(
+      2px 2px at 90px 40px,
+      rgba(192, 132, 151, 0.3),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 120px 120px,
+      rgba(224, 182, 69, 0.2),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 150px 60px,
+      rgba(240, 122, 171, 0.2),
+      transparent
+    );
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
+
+/* Clases personalizadas */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-rose-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-subtle-gradient {
+    background: linear-gradient(135deg, var(--color-surface-alt) 0%, var(--color-background) 100%);
+  }
+  
+  .border-subtle {
+    border-color: var(--color-border);
+  }
 }
