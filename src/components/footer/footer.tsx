@@ -48,11 +48,9 @@ export default function FooterMinimal() {
         </div>
 
         {/* Línea y enlaces legales */}
-        <div className="mt-8 pt-8 border-t border-subtle text-center">
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-foreground-muted">
-            Avenida Rosalia de Castro 41, Amés, Galicia
-            <span>•</span>
-            <span>Rocio Lois</span>
+        <div className="mt-8 mb-15 pt-8 border-t border-subtle text-center">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-foreground-muted">
+            <span>Avenida Rosalia de Castro 41, Amés, Galicia</span>
           </div>
         </div>
       </div>
