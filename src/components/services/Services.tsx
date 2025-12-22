@@ -454,12 +454,6 @@ export default function Services() {
 
                     <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
                       {service.title}
-                      {isMicroblading && (
-                        <span className="block text-sm md:text-base text-foreground-muted font-normal mt-1 md:mt-2">
-                          <FaCircle className="inline-block w-1.5 h-1.5 md:w-2 md:h-2 mr-1.5 md:mr-2 text-accent animate-pulse" />
-                          Galería de resultados
-                        </span>
-                      )}
                     </h2>
 
                     <p className="text-base md:text-lg text-foreground-muted leading-relaxed hidden md:block">
