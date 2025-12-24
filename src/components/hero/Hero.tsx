@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { 
-  FaCalendarAlt, 
-  FaWhatsapp, 
-  FaInstagram, 
+import {
+  FaCalendarAlt,
+  FaWhatsapp,
+  FaInstagram,
   FaPhoneAlt,
   FaClock,
 } from "react-icons/fa";
@@ -26,9 +26,9 @@ export default function Hero() {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
     // Solo aplicar animaciones GSAP en desktop
     if (!isMobile && imageRef.current) {
@@ -50,7 +50,7 @@ export default function Hero() {
         duration: 2,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut"
+        ease: "sine.inOut",
       });
 
       gsap.to(".floating-element-2", {
@@ -59,12 +59,12 @@ export default function Hero() {
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 0.5
+        delay: 0.5,
       });
     }
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener("resize", checkMobile);
     };
   }, [isMobile]);
 
@@ -72,27 +72,43 @@ export default function Hero() {
     <section className="relative min-h-screen h-auto md:h-screen overflow-hidden flex items-center justify-center">
       {/* Fondo con gradiente */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50/20 via-pink-50/10 to-white/5 z-0" />
-      
+
       {/* Patrón decorativo - solo desktop */}
       <div className="hidden md:block absolute inset-0 opacity-[0.02] z-0">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-accent/10 blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl" />
       </div>
 
-      {/* Imagen principal */}
-      <div ref={imageRef} className="absolute inset-0 opacity-80 md:opacity-90">
-        <Image
-          src="/img/roro1.jpg"
-          alt="Centro de estética profesional Glam & Beauty"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-          quality={isMobile ? 75 : 90}
-          style={{ objectPosition: isMobile ? "center 30%" : "center" }}
-        />
+      {/* Imagen principal responsive */}
+      <div ref={imageRef} className="absolute inset-0 opacity-80 md:opacity-80">
+        <picture>
+          {/* Imagen para móvil (ancho < 768px) */}
+          <source
+            srcSet="/img/hero-mobilev1.png" 
+            media="(max-width: 767px)"
+            width={768}
+            height={1024}
+          />
+          {/* Imagen para desktop (ancho >= 768px) */}
+          <source
+            srcSet="/img/hero-desktop.jpeg" 
+            media="(min-width: 768px)"
+            width={1920}
+            height={1080}
+          />
+          {/* Imagen por defecto (fallback) */}
+          <Image
+            src="/img/hero-desktop.jpeg" // Misma que desktop como fallback
+            alt="Centro de estética profesional Glam & Beauty"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+            quality={90}
+          />
+        </picture>
         {/* Overlay mejorado para móvil */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/50 md:bg-gradient-to-t md:from-black/70 md:via-black/40 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 md:bg-gradient-to-t md:from-black/70 md:via-black/40 md:to-transparent" />
       </div>
 
       {/* Elementos decorativos flotantes - solo desktop */}
@@ -100,7 +116,10 @@ export default function Hero() {
       <div className="floating-element-2 absolute bottom-1/3 left-12 w-8 h-8 rounded-full bg-purple-400/20 blur-sm hidden md:block" />
 
       {/* Contenido principal - TODO CENTRADO */}
-      <div ref={contentRef} className="relative z-20 w-full flex items-center justify-center px-4 py-8 md:py-0">
+      <div
+        ref={contentRef}
+        className="relative z-20 w-full flex items-center justify-center px-4 py-8 md:py-0"
+      >
         <div className="max-w-4xl mx-auto w-full">
           {/* Contenedor único centrado */}
           <div className="flex flex-col items-center text-center justify-center">
@@ -111,7 +130,6 @@ export default function Hero() {
               transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
               className="text-white w-full flex flex-col items-center"
             >
-
               {/* Título principal - centrado */}
               <motion.div
                 initial={{ opacity: 0, y: isMobile ? 20 : 40 }}
@@ -132,7 +150,8 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-sm sm:text-base md:text-lg text-white/90 max-w-md sm:max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed px-2"
               >
-                Descubre la excelencia en microblading, extensiones de pestañas y tratamientos faciales personalizados.
+                Descubre la excelencia en microblading, extensiones de pestañas
+                y tratamientos faciales personalizados.
               </motion.p>
 
               {/* Servicios destacados - centrados */}
@@ -142,14 +161,16 @@ export default function Hero() {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-12 justify-center max-w-sm sm:max-w-none mx-auto"
               >
-                {["Microblading", "Extensiones", "Faciales", "Maquillaje"].map((service, idx) => (
-                  <span 
-                    key={idx}
-                    className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm md:text-base border border-white/20 hover:bg-white/20 transition-all duration-300 whitespace-nowrap"
-                  >
-                    {service}
-                  </span>
-                ))}
+                {["Microblading", "Extensiones", "Faciales", "Maquillaje"].map(
+                  (service, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm md:text-base border border-white/20 hover:bg-white/20 transition-all duration-300 whitespace-nowrap"
+                    >
+                      {service}
+                    </span>
+                  )
+                )}
               </motion.div>
 
               {/* Botones de acción - Desktop - centrados */}
@@ -189,10 +210,12 @@ export default function Hero() {
                 transition={{ delay: 1, duration: 0.8 }}
                 className="hidden md:flex flex-col items-center gap-4 mt-8"
               >
-                <span className="text-white/70 text-base">Síguenos en redes</span>
+                <span className="text-white/70 text-base">
+                  Síguenos en redes
+                </span>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://www.instagram.com/glamandbeauty_studio/" 
+                  <a
+                    href="https://www.instagram.com/glamandbeauty_studio/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-110"
@@ -233,8 +256,8 @@ export default function Hero() {
           </a>
 
           {/* Icono de Instagram */}
-          <a 
-            href="https://www.instagram.com/glamandbeauty_studio/" 
+          <a
+            href="https://www.instagram.com/glamandbeauty_studio/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center hover:opacity-90 transition-all duration-300 active:scale-95 shadow-lg"
@@ -255,8 +278,8 @@ export default function Hero() {
         <div className="flex justify-between items-center">
           {/* Teléfono */}
           <div className="bg-black/50 backdrop-blur-sm rounded-full p-2 border border-white/20">
-            <a 
-              href="tel:+34644457426" 
+            <a
+              href="tel:+34644457426"
               className="flex items-center gap-2 text-white text-sm font-medium px-2"
             >
               <FaPhoneAlt className="text-accent" />
@@ -284,10 +307,12 @@ export default function Hero() {
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 max-w-xs">
           <div className="text-center">
             <div className="text-2xl font-serif text-accent mb-2">Abierto</div>
-            <div className="text-white text-sm mb-1">Lun - Vie: 9:00 - 20:00</div>
+            <div className="text-white text-sm mb-1">
+              Lun - Vie: 9:00 - 20:00
+            </div>
             <div className="text-white text-sm mb-4">Sáb: 10:00 - 18:00</div>
-            <a 
-              href="tel:+34644457426" 
+            <a
+              href="tel:+34644457426"
               className="text-white hover:text-accent transition-colors text-lg font-semibold inline-flex items-center gap-2"
             >
               <FaPhoneAlt className="text-accent" />
@@ -305,7 +330,9 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-white/60 text-sm tracking-widest">DESCUBRE MÁS</span>
+          <span className="text-white/60 text-sm tracking-widest">
+            DESCUBRE MÁS
+          </span>
           <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
