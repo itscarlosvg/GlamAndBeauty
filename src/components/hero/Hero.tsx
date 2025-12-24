@@ -115,7 +115,7 @@ export default function Hero() {
       <div className="floating-element-1 absolute top-1/4 right-10 w-6 h-6 rounded-full bg-accent/30 blur-sm hidden md:block" />
       <div className="floating-element-2 absolute bottom-1/3 left-12 w-8 h-8 rounded-full bg-purple-400/20 blur-sm hidden md:block" />
 
-      {/* Contenido principal - TODO CENTRADO */}
+      {/* Contenido principal */}
       <div
         ref={contentRef}
         className="relative z-20 w-full flex items-center justify-center px-4 py-8 md:py-0"
@@ -123,7 +123,7 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto w-full">
           {/* Contenedor único centrado */}
           <div className="flex flex-col items-center text-center justify-center">
-            {/* Columna de texto - completamente centrada */}
+            {/* Columna de texto */}
             <motion.div
               initial={{ opacity: 0, y: isMobile ? 20 : 40 }}
               animate={{ opacity: 1, y: 0 }}

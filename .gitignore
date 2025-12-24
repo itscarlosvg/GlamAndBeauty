@@ -1,41 +1,177 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# ==================== #
+# DEPENDENCIES & BUILD #
+# ==================== #
+# Dependencias de Node.js
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
-!.yarn/versions
+!..yarn/versions
+.pnpm-store/
 
-# testing
-/coverage
+# Next.js - Build y caché
+.next/
+out/
+.next/cache/
 
-# next.js
-/.next/
-/out/
+# Build de producción
+build/
+dist/
+*.tgz
 
-# production
-/build
+# =============== #
+# ENVIRONMENT VARS #
+# =============== #
+# Archivos de entorno (NO subir a git)
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
 
-# misc
+# Solo excluir si no quieres commitear ningún .env
+# .env*
+
+# ================= #
+# SISTEMA OPERATIVO #
+# ================= #
+# macOS
 .DS_Store
-*.pem
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
 
-# debug
+# Thumbnails
+._*
+
+# Archivos temporales de macOS
+.DocumentRevisions-V100
+.fseventsd
+.SyncService
+.TemporaryItems
+.VolumeIcon.icns
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ================= #
+# IDE & HERRAMIENTAS #
+# ================= #
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Otros editores
+*.swp
+*.swo
+*~
+
+# ==================== #
+# LOGS & DEPURACIÓN #
+# ==================== #
+# Logs de npm/yarn/pnpm
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Chrome debug
+.vscode/chrome/
 
-# vercel
-.vercel
-
-# typescript
+# ============= #
+# TYPESCRIPT #
+# ============= #
+# Output de TypeScript
 *.tsbuildinfo
+
+# =============== #
+# TESTING & COVERAGE #
+# =============== #
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Jest
+jest-cache/
+jest-results.json
+
+# Playwright/Browser testing
+playwright-report/
+test-results/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# ========== #
+# VERCEL #
+# ========== #
+# Vercel (hosting)
+.vercel/
+.vercel_build_output/
+
+# ================ #
+# DOCKER #
+# ================ #
+# Docker 
+.docker/
+
+# ==================== #
+# ARCHIVOS TEMPORALES #
+# ==================== #
+# Temporales de varios tipos
+*.tmp
+*.temp
+*.log
+.cache/
+
+# ================ #
+# NEXT.JS ESPECÍFICO #
+# ================ #
+# Next.js - Types
 next-env.d.ts
+
+# Next.js - PWA
+public/sw.js
+public/workbox-*.js
+
+# ================= #
+# OTROS ESPECÍFICOS #
+# ================= #
+# ESLint/Biome/Prettier caché
+.eslintcache
+.prettiercache
+
+# Lockfiles alternativos
+package-lock.json       
+
+# ==================== #
+# TU PROYECTO ESPECÍFICO #
+# ==================== #
+/public/
