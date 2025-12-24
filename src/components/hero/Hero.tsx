@@ -69,7 +69,7 @@ export default function Hero() {
   }, [isMobile]);
 
   return (
-    <section className="relative min-h-screen h-auto md:h-screen overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-screen h-auto md:h-screen overflow-hidden flex items-center justify-start">
       {/* Fondo con gradiente */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50/20 via-pink-50/10 to-white/5 z-0" />
 
@@ -84,14 +84,14 @@ export default function Hero() {
         <picture>
           {/* Imagen para móvil (ancho < 768px) */}
           <source
-            srcSet="/img/hero-mobilev1.png" 
+            srcSet="/img/hero-mobilev1.png"
             media="(max-width: 767px)"
             width={768}
             height={1024}
           />
           {/* Imagen para desktop (ancho >= 768px) */}
           <source
-            srcSet="/img/hero-desktop.jpeg" 
+            srcSet="/img/hero-desktop.jpeg"
             media="(min-width: 768px)"
             width={1920}
             height={1080}
@@ -102,64 +102,64 @@ export default function Hero() {
             alt="Centro de estética profesional Glam & Beauty"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-center md:object-right"
             sizes="100vw"
             quality={90}
           />
         </picture>
-        {/* Overlay mejorado para móvil */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 md:bg-gradient-to-t md:from-black/70 md:via-black/40 md:to-transparent" />
+        {/* Overlay mejorado - más fuerte del lado izquierdo en desktop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 md:bg-gradient-to-r md:from-black/90 md:via-black/70 md:to-black/30" />
       </div>
 
       {/* Elementos decorativos flotantes - solo desktop */}
       <div className="floating-element-1 absolute top-1/4 right-10 w-6 h-6 rounded-full bg-accent/30 blur-sm hidden md:block" />
       <div className="floating-element-2 absolute bottom-1/3 left-12 w-8 h-8 rounded-full bg-purple-400/20 blur-sm hidden md:block" />
 
-      {/* Contenido principal */}
+      {/* Contenido principal - Ahora claramente al lado izquierdo */}
       <div
         ref={contentRef}
-        className="relative z-20 w-full flex items-center justify-center px-4 py-8 md:py-0"
+        className="relative z-20 w-full md:w-auto px-4 py-8 md:py-0 md:pl-12 lg:pl-16 xl:pl-24"
       >
-        <div className="max-w-4xl mx-auto w-full">
-          {/* Contenedor único centrado */}
-          <div className="flex flex-col items-center text-center justify-center">
+        <div className="md:max-w-xl lg:max-w-2xl">
+          {/* Contenedor alineado completamente a la izquierda */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             {/* Columna de texto */}
             <motion.div
               initial={{ opacity: 0, y: isMobile ? 20 : 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-              className="text-white w-full flex flex-col items-center"
+              className="text-white w-full"
             >
-              {/* Título principal - centrado */}
+              {/* Título principal */}
               <motion.div
                 initial={{ opacity: 0, y: isMobile ? 20 : 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="mb-6 md:mb-8 w-full"
+                className="mb-6 md:mb-8"
               >
-                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+                <h1 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
                   <span className="block">Glam & Beauty</span>
                 </h1>
-                <div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-accent mx-auto mt-4 md:mt-6" />
+                <div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-accent mt-4 md:mt-6 mx-auto md:mx-0" />
               </motion.div>
 
-              {/* Subtítulo - centrado */}
+              {/* Subtítulo */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-sm sm:text-base md:text-lg text-white/90 max-w-md sm:max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed px-2"
+                className="text-sm sm:text-base md:text-lg text-white/90 mb-6 md:mb-10 leading-relaxed"
               >
                 Descubre la excelencia en microblading, extensiones de pestañas
                 y tratamientos faciales personalizados.
               </motion.p>
 
-              {/* Servicios destacados - centrados */}
+              {/* Servicios destacados */}
               <motion.div
                 initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-12 justify-center max-w-sm sm:max-w-none mx-auto"
+                className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-12 justify-center md:justify-start"
               >
                 {["Microblading", "Extensiones", "Faciales", "Maquillaje"].map(
                   (service, idx) => (
@@ -173,14 +173,14 @@ export default function Hero() {
                 )}
               </motion.div>
 
-              {/* Botones de acción - Desktop - centrados */}
+              {/* Botones de acción - Desktop */}
               <motion.div
                 initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="hidden md:flex flex-col sm:flex-row gap-4 justify-center mb-8"
+                className="hidden md:flex flex-col lg:flex-row gap-4 mb-8"
               >
-                {/* Botón de reserva - Desktop */}
+                {/* Botón de reserva */}
                 <a
                   href="https://booksy.com/es-es/111439_glam-beauty_otro_61599_tarrio#ba_s=seo"
                   target="_blank"
@@ -191,7 +191,7 @@ export default function Hero() {
                   <span>Reservar cita</span>
                 </a>
 
-                {/* Botón de WhatsApp - Desktop */}
+                {/* Botón de WhatsApp */}
                 <a
                   href="https://wa.me/34644457426"
                   target="_blank"
@@ -203,14 +203,14 @@ export default function Hero() {
                 </a>
               </motion.div>
 
-              {/* Redes sociales - Desktop - centradas */}
+              {/* Redes sociales - Desktop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="hidden md:flex flex-col items-center gap-4 mt-8"
+                className="hidden md:block mt-8"
               >
-                <span className="text-white/70 text-base">
+                <span className="text-white/70 text-base mb-3 block">
                   Síguenos en redes
                 </span>
                 <div className="flex gap-4">
