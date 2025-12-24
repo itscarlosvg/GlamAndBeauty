@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🎀 Glam & Beauty Studio - Web Oficial
+=====================================
 
-## Getting Started
+> Página web moderna y responsive para el centro de estética Glam & Beauty Studio en Galicia
 
-First, run the development server:
+URL oficial: [glamandbeauty.es](https://glamandbeauty.es/)\
+Estado: ✅ En producción y activa
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* * * * *
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🎯 ¿Qué hace esta web?
+----------------------
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Esta es la página web oficial de Glam & Beauty Studio, un centro de estética especializado en:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   Microblading y micropigmentación de cejas, labios y ojos
 
-## Learn More
+-   Extensiones de pestañas personalizadas
 
-To learn more about Next.js, take a look at the following resources:
+-   Maquillaje profesional para eventos y bodas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Tratamientos faciales personalizados
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La web permite a los clientes reservar citas online a través de Booksy, contactar directamente por WhatsApp, y ver ejemplos reales del trabajo del estudio.
 
-## Deploy on Vercel
+* * * * *
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✨ Características principales
+-----------------------------
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   ✨ Diseño completamente responsive - Se adapta perfectamente a móvil, tablet y desktop
+
+-   ⚡ Rendimiento optimizado - Imágenes responsive, carga rápida, optimizado para SEO
+
+-   🎨 Interfaz moderna - Animaciones suaves, gradientes, y diseño limpio
+
+-   📱 UX pensada para móvil - Botones flotantes fáciles de usar con el dedo
+
+-   🔄 Integraciones - Reservas con Booksy, contacto directo por WhatsApp, Instagram
+
+-   🌐 Multilingüe listo - Estructura preparada para traducciones
+
+* * * * *
+
+🛠️ Tecnologías utilizadas
+--------------------------
+
+| Tecnología | Para qué la uso |
+| --- | --- |
+| Next.js 14+ | Framework React con Server Side Rendering y optimización automática |
+| React 18+ | Librería principal para construir la interfaz de usuario |
+| TypeScript | Tipado seguro para detectar errores antes de tiempo |
+| Tailwind CSS | Estilos rápidos, responsive y fáciles de mantener |
+| Framer Motion | Animaciones fluidas para los elementos de la interfaz |
+| GSAP + ScrollTrigger | Efectos parallax avanzados y animaciones al hacer scroll |
+| React Icons | Iconos de FontAwesome para botones y secciones |
+| Swiper | Carruseles responsive para testimonios y galerías |
