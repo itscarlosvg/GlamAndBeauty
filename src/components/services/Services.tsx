@@ -364,7 +364,7 @@ export default function Services() {
           const isReversed = index % 2 !== 0;
           const Icon = service.icon;
           const isMicroblading = service.title === "Microblading & Micropigmentación";
-          const price = index === 0 ? "150" : index === 1 ? "45" : index === 2 ? "80" : index === 3 ? "25" : "35";
+          const price = index === 0 ? "250" : index === 1 ? "60" : index === 2 ? "50" : index === 3 ? "15" : "30";
 
           return (
             <div
