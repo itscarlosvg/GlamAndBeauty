@@ -11,6 +11,7 @@ import {
   FaInstagram,
   FaPhoneAlt,
   FaClock,
+  FaFacebook,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -222,6 +223,15 @@ export default function Hero() {
                     aria-label="Instagram"
                   >
                     <FaInstagram className="text-white text-xl" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/p/Salón-de-belleza-GlamBeauty-100062981451492/?locale=es_ES"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-110"
+                    aria-label="Facebook"
+                  >
+                    <FaFacebook className="text-white text-xl" />
                   </a>
                 </div>
               </motion.div>
