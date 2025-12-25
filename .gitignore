@@ -157,9 +157,6 @@ cypress/screenshots/
 # Next.js - Types
 next-env.d.ts
 
-# Next.js - PWA
-public/sw.js
-public/workbox-*.js
 
 # ================= #
 # OTROS ESPECÍFICOS #
@@ -171,7 +168,3 @@ public/workbox-*.js
 # Lockfiles alternativos
 package-lock.json       
 
-# ==================== #
-# TU PROYECTO ESPECÍFICO #
-# ==================== #
-/public/
