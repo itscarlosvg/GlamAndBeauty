@@ -85,7 +85,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://glamandbeauty.es/img/logo.jpg"
+          content="https://glamandbeauty.es/img/logo.png"
         />
         <meta property="og:url" content="https://glamandbeauty.es" />
         <meta property="og:type" content="website" />
