@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
     name: "Glam & Beauty Studio",
-    image: "https://glamandbeauty.es/logo.png", 
+    image: "https://glamandbeauty.es/img/logo.png", 
     description:
       "Centro de estética especializado en microblading, extensiones de pestañas, maquillaje profesional y diseño de cejas en Galicia.",
     address: {

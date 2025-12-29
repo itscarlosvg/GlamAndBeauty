@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import Footer from "@/components/footer/footer";
+import StructuredData from "@/components/structured-data/Structured-data";
 
 // Configuración de fuentes
 const inter = Inter({
@@ -16,12 +17,6 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-// TODO: CREA ESTAS IMÁGENES Y PONLAS EN /public/
-// - favicon.ico (32x32px)
-// - favicon-16x16.png (16x16px)
-// - favicon-32x32.png (32x32px)
-// - apple-touch-icon.png (180x180px)
-// - og-image.jpg (1200x630px) ← PARA FACEBOOK/WHATSAPP
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://glamandbeauty.es"),
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Glam & Beauty Studio",
     images: [
       {
-        url: "/og-image.jpg", // ← ¡IMPORTANTE! No uses favicon aquí
+        url: "/og-image.jpg", 
         width: 1200,
         height: 630,
         alt: "Glam & Beauty Studio - Centro de estética en Galicia",
@@ -75,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Glam & Beauty Studio | Estética en Galicia",
     description: "Microblading, extensiones de pestañas y maquillaje profesional en Galicia.",
-    images: ["/og-image.jpg"], // Misma imagen que OpenGraph
+    images: ["/og-image.jpg"], 
   },
 };
 
@@ -89,10 +84,10 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${playfair.variable} antialiased`}
     >
-      {/* ¡NO pongas nada en <head>! Next.js lo genera del objeto `metadata` */}
       <body className="bg-background text-foreground font-sans min-h-screen">
         {children}
         <Footer />
+        <StructuredData />
       </body>
     </html>
   );
