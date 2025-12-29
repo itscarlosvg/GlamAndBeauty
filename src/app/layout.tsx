@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Glam & Beauty Studio",
   },
   description:
-    "Centro de estética profesional en Galicia. Microblading de cejas, extensiones de pestañas, maquillaje profesional y tratamientos faciales personalizados. Reserva online.",
+    "Centro de estética profesional en Galicia. Microblading y diseño de cejas, extensiones de pestañas, maquillaje profesional y tratamientos faciales personalizados. Reserva online.",
   keywords: [
     "microblading galicia",
     "extensiones de pestañas",
