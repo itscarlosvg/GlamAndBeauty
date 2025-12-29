@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     icon: [
       // Favicon básico
       {
-        url: "/favicon.ico",
+        url: "/favicon.ico?v=2",
         sizes: "any",
       },
       // Para dispositivos Apple
       {
-        url: "/favicon-180.png",
+        url: "/favicon-180.png?v=2",
         sizes: "180x180",
         type: "image/png",
       },
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     // Para Windows/Microsoft
     apple: [
       {
-        url: "/favicon-180.png",
+        url: "/favicon-180.png?v=2",
         sizes: "180x180",
         type: "image/png",
       },
     ],
-    shortcut: ["/favicon.ico"],
+    shortcut: ["/favicon.ico?v=2"],
   },
 };
 
@@ -58,14 +58,14 @@ export default function RootLayout({
       <head>
         {/* METADATOS BÁSICOS - Google los lee primero */}
         <title>Glam & Beauty Studio | Centro de Estética en Galicia</title>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         <link
           rel="icon"
-          href="/favicon-16.png"
+          href="/favicon-16.png?v=2"
           type="image/png"
           sizes="16x16"
         />
-        <link rel="apple-touch-icon" href="/favicon-16.png" />
+        <link rel="apple-touch-icon" href="/favicon-16.png?v=2" />
         <meta
           name="description"
           content="Centro de estética profesional en Galicia. Microblading de cejas, extensiones de pestañas, maquillaje profesional y tratamientos faciales personalizados. Reserva online."
@@ -85,7 +85,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://glamandbeauty.es/img/logo.png"
+          content="https://glamandbeauty.es/favicon-16.png?v=2"
         />
         <meta property="og:url" content="https://glamandbeauty.es" />
         <meta property="og:type" content="website" />
