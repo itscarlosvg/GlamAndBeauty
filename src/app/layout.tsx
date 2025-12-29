@@ -16,32 +16,66 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+// TODO: CREA ESTAS IMÁGENES Y PONLAS EN /public/
+// - favicon.ico (32x32px)
+// - favicon-16x16.png (16x16px)
+// - favicon-32x32.png (32x32px)
+// - apple-touch-icon.png (180x180px)
+// - og-image.jpg (1200x630px) ← PARA FACEBOOK/WHATSAPP
+
 export const metadata: Metadata = {
-  title: "Glam & Beauty",
-  description: "Centro de estética profesional",
+  metadataBase: new URL("https://glamandbeauty.es"),
+  title: {
+    default: "Glam & Beauty Studio | Microblading y Estética en Galicia",
+    template: "%s | Glam & Beauty Studio",
+  },
+  description:
+    "Centro de estética profesional en Galicia. Microblading de cejas, extensiones de pestañas, maquillaje profesional y tratamientos faciales personalizados. Reserva online.",
+  keywords: [
+    "microblading galicia",
+    "extensiones de pestañas",
+    "estética amés",
+    "maquillaje profesional",
+    "tratamientos faciales",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
+    // CONFIGURACIÓN CORRECTA DE FAVICONS
     icon: [
-      // Favicon básico
-      {
-        url: "/favicon.ico?v=2",
-        sizes: "any",
-      },
-      // Para dispositivos Apple
-      {
-        url: "/favicon-180.png?v=2",
-        sizes: "180x180",
-        type: "image/png",
-      },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
     ],
-    // Para Windows/Microsoft
     apple: [
-      {
-        url: "/favicon-180.png?v=2",
-        sizes: "180x180",
-        type: "image/png",
-      },
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
     ],
     shortcut: ["/favicon.ico?v=2"],
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: "https://glamandbeauty.es",
+    title: "Glam & Beauty Studio | Estética Profesional en Galicia",
+    description:
+      "Microblading, extensiones de pestañas y maquillaje profesional en Galicia. Resultados naturales.",
+    siteName: "Glam & Beauty Studio",
+    images: [
+      {
+        url: "/og-image.jpg", // ← ¡IMPORTANTE! No uses favicon aquí
+        width: 1200,
+        height: 630,
+        alt: "Glam & Beauty Studio - Centro de estética en Galicia",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Glam & Beauty Studio | Estética en Galicia",
+    description: "Microblading, extensiones de pestañas y maquillaje profesional en Galicia.",
+    images: ["/og-image.jpg"], // Misma imagen que OpenGraph
   },
 };
 
@@ -55,43 +89,7 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${playfair.variable} antialiased`}
     >
-      <head>
-        {/* METADATOS BÁSICOS - Google los lee primero */}
-        <title>Glam & Beauty Studio | Centro de Estética en Galicia</title>
-        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
-        <link
-          rel="icon"
-          href="/favicon-16.png?v=2"
-          type="image/png"
-          sizes="16x16"
-        />
-        <link rel="apple-touch-icon" href="/favicon-16.png?v=2" />
-        <meta
-          name="description"
-          content="Centro de estética profesional en Galicia. Microblading de cejas, extensiones de pestañas, maquillaje profesional y tratamientos faciales personalizados. Reserva online."
-        />
-
-        {/* PARA GOOGLE - Evita que indexe páginas de prueba */}
-        <meta name="robots" content="index, follow" />
-
-        {/* PARA REDES SOCIALES - Cuando compartan tu enlace */}
-        <meta
-          property="og:title"
-          content="Glam & Beauty Studio | Estética Profesional"
-        />
-        <meta
-          property="og:description"
-          content="Microblading, extensiones de pestañas y maquillaje profesional en Galicia. Resultados naturales."
-        />
-        <meta
-          property="og:image"
-          content="https://glamandbeauty.es/favicon-16.png?v=2"
-        />
-        <meta property="og:url" content="https://glamandbeauty.es" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="es_ES" />
-      </head>
-
+      {/* ¡NO pongas nada en <head>! Next.js lo genera del objeto `metadata` */}
       <body className="bg-background text-foreground font-sans min-h-screen">
         {children}
         <Footer />
@@ -99,16 +97,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-/*
- * By:
- *   ░█████╗░░█████╗░██████╗░██╗░░░░░░█████╗░░██████╗░░░░░░░░░█████╗░░█████╗░██████╗░███████╗░░░
- *   ██╔══██╗██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔════╝░░░░░░░░██╔══██╗██╔══██╗██╔══██╗██╔════╝░░░
- *   ██║░░╚═╝███████║██████╔╝██║░░░░░██║░░██║╚█████╗░░░░░░░░░██║░░╚═╝██║░░██║██║░░██║█████╗░░░░░
- *   ██║░░██╗██╔══██║██╔══██╗██║░░░░░██║░░██║░╚═══██╗░░░░░░░░██║░░██╗██║░░██║██║░░██║██╔══╝░░░░░
- *   ╚█████╔╝██║░░██║██║░░██║███████╗╚█████╔╝██████╔╝░░░░░░░░╚█████╔╝╚█████╔╝██████╔╝███████╗██╗
- *   ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝░╚════╝░╚═════╝░░░░░░░░░░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝
- *
- * ⚡ Powered by: React
- * License: MIT - Compartir es vivir!
- */
